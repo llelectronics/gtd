@@ -18,8 +18,6 @@ SOURCES += src/harbour-gtd.cpp
 
 OTHER_FILES += qml/harbour-gtd.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/harbour-gtd.changes.in \
     rpm/harbour-gtd.spec \
     rpm/harbour-gtd.yaml \
@@ -39,5 +37,12 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-gtd-de.ts
 
 DISTFILES += \
-    qml/pages/AboutPage.qml
+    qml/pages/AboutPage.qml \
+    qml/pages/MainPage.qml \
+    qml/pages/ListsPage.qml \
+    qml/pages/MainPageCom/ListsViewComponent.qml \
+    qml/pages/MainPageCom/qmldir \
+    qml/pages/MainPageCom/DoingListView.qml \
+    qml/pages/MainPageCom/DoneListView.qml \
+    qml/pages/MainPageCom/TodoListView.qml
 

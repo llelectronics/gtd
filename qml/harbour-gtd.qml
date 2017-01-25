@@ -34,8 +34,23 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component { FirstPage { } }
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
+    id: mainWindow
+
+    property string version: "1.0"
+    property string appname: "GTD"
+    property string appicon: "images/icon.png"
+
+    property Item mainPage
+
+
+    initialPage: Component {
+        MainPage {
+            id: mainPage
+
+            Component.onCompleted: { mainWindow.mainPage = mainPage; /*DB.getSettings();*/ }
+        }
+    }
+    cover: undefined
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All
 }

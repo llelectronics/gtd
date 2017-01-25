@@ -80,7 +80,7 @@ Page {
             Label {
                 width: parent.width-70
                 font.pixelSize: Theme.fontSizeSmall
-                text: qsTr("A simple webbrowser based on webkit.")
+                text: qsTr("A simple Getting Things Done application.")
                 anchors.horizontalCenter: parent.horizontalCenter
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignHCenter
