@@ -44,5 +44,6 @@ DISTFILES += \
     qml/pages/MainPageCom/qmldir \
     qml/pages/MainPageCom/DoingListView.qml \
     qml/pages/MainPageCom/DoneListView.qml \
-    qml/pages/MainPageCom/TodoListView.qml
+    qml/pages/MainPageCom/TodoListView.qml \
+    qml/pages/MainPageCom/TodoItem.qml
 

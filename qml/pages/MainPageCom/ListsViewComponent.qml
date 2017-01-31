@@ -10,6 +10,7 @@ Item {
     property string icon
     property string filter
     property alias listView: listView
+    property string type
 
     height: mainPage.height; width: mainPage.width
 
@@ -30,16 +31,27 @@ Item {
         }
         delegate:
             // TODO Add proper list item
-            BackgroundItem {
-            id: delegate
+            TodoItem {
+            id: todoItem
+            title: ttitle
+            catColor1: tcatColor1
+            catColor2: tcatColor2
+            catColor3: tcatColor3
+            moveRightIcon: tmoveRightIcon
+            width: parent.width - Theme.paddingMedium * 2
+            anchors.horizontalCenter: parent.horizontalCenter
 
-            Label {
-                x: Theme.paddingLarge
-                text: qsTr("Item") + " " + index
-                anchors.verticalCenter: parent.verticalCenter
-                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
-            }
-            onClicked: console.log("Clicked " + index)
+            //            BackgroundItem {
+            //            id: delegate
+
+            //            Label {
+            //                x: Theme.paddingLarge
+            //                text: qsTr("Item") + " " + index
+            //                anchors.verticalCenter: parent.verticalCenter
+            //                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
+            //            }
+            onItemClicked: console.debug("Clicked " + ttitle)
+            onMoveRightButtonClicked: console.debug("Move todo with title:" + ttitle + " to the right")
         }
         VerticalScrollDecorator {}
     }

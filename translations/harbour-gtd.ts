@@ -45,13 +45,6 @@
     </message>
 </context>
 <context>
-    <name>ListsViewComponent</name>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TodoListView</name>
     <message>
         <source>Todo</source>
