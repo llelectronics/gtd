@@ -34,17 +34,6 @@
     </message>
 </context>
 <context>
-    <name>ListsPage</name>
-    <message>
-        <source>Nested Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TodoListView</name>
     <message>
         <source>Todo</source>

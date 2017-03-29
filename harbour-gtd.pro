@@ -39,11 +39,11 @@ TRANSLATIONS += translations/harbour-gtd-de.ts
 DISTFILES += \
     qml/pages/AboutPage.qml \
     qml/pages/MainPage.qml \
-    qml/pages/ListsPage.qml \
     qml/pages/MainPageCom/ListsViewComponent.qml \
     qml/pages/MainPageCom/qmldir \
     qml/pages/MainPageCom/DoingListView.qml \
     qml/pages/MainPageCom/DoneListView.qml \
     qml/pages/MainPageCom/TodoListView.qml \
-    qml/pages/MainPageCom/TodoItem.qml
+    qml/pages/MainPageCom/TodoItem.qml \
+    qml/pages/LListModel.qml
 

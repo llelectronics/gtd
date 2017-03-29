@@ -18,6 +18,7 @@ Item {
         id: listView
         model: parent.model
         anchors.fill: parent
+        spacing: Theme.paddingSmall
         header: PageHeader {
             title: lsViewComponent.title
             Image {
@@ -34,12 +35,14 @@ Item {
             TodoItem {
             id: todoItem
             title: ttitle
+            ident: tid
             catColor1: tcatColor1
             catColor2: tcatColor2
             catColor3: tcatColor3
             moveRightIcon: tmoveRightIcon
             width: parent.width - Theme.paddingMedium * 2
             anchors.horizontalCenter: parent.horizontalCenter
+            height: Theme.itemSizeLarge
 
             //            BackgroundItem {
             //            id: delegate
@@ -51,7 +54,17 @@ Item {
             //                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             //            }
             onItemClicked: console.debug("Clicked " + ttitle)
-            onMoveRightButtonClicked: console.debug("Move todo with title:" + ttitle + " to the right")
+            onMoveRightButtonClicked: {
+                console.debug("Move todo with title:" + ttitle + " and tid " + tid + " to the right. Current: " + lsViewComponent.model)
+                if (lsViewComponent.model === todoListModel) {
+                    doingListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":tmoveRightIcon, "tid":ident});
+                    todoListModel.rm(tid);
+                }
+                else if (lsViewComponent.model === doingListModel) {
+                    doneListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":"image://theme/icon-m-acknowledge", "tid":ident});
+                    doingListModel.rm(tid);
+                }
+            }
         }
         VerticalScrollDecorator {}
     }

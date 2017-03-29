@@ -1,4 +1,4 @@
-/*
+﻿/*
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -685,7 +685,7 @@ import "MainPageCom"
 Page {
     id: mainPage
 
-    // To enable PullDownMenu, place our content in a SilicaFlickable
+    anchors.fill: parent
 
 
     SlideshowView {
@@ -703,6 +703,37 @@ Page {
             DoingListView { id: doingListView }
             DoneListView { id: doneListView }
         }
+    }
+
+    LListModel {
+        id: todoListModel
+
+        // Examples
+        Component.onCompleted: {
+            todoListModel.append({
+                        "ttitle": "This is a small test todo",
+                        "tcatColor1": "green",
+                        "tcatColor2": "orange",
+                        "tcatColor3": "",
+                        "tmoveRightIcon": "image://theme/icon-cover-next",
+                        "tid": "Elem1" //uniq
+                        });
+            todoListModel.append({
+                        ttitle: "Test Todo 2",
+                        tcatColor1: "red",
+                        tcatColor2: "blue",
+                        tcatColor3: "cyan",
+                        tmoveRightIcon: "image://theme/icon-cover-next",
+                        tid: "Elem2"
+                        });
+        }
+        // End Example
+    }
+    LListModel {
+        id: doingListModel
+    }
+    LListModel {
+        id: doneListModel
     }
 }
 

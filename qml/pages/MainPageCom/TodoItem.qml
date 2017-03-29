@@ -8,6 +8,7 @@ Item {
     property alias catColor3: catColor3.color
     property alias title: todoTitle.text
     property alias moveRightIcon: moveRightIcon.source
+    property string ident
     signal moveRightButtonClicked
     signal itemClicked
 

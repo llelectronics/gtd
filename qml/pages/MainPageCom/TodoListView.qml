@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 
 ListsViewComponent {
     title: qsTr("Todo")
-    model: exampleTodoModel
+    model: todoListModel
 
     PullDownMenu {
         id: pulley
@@ -20,18 +20,6 @@ ListsViewComponent {
         MenuItem {
             text: qsTr("Filter")
             onClicked: pageStack.push(Qt.resolvedUrl("Filter.qml"));
-        }
-    }
-
-    //Example Model
-    ListModel {
-        id: exampleTodoModel
-        ListElement {
-            ttitle: "This is a small test todo"
-            tcatColor1: "green"
-            tcatColor2: "orange"
-            tcatColor3: ""
-            tmoveRightIcon: "image://theme/icon-cover-next"
         }
     }
 
