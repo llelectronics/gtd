@@ -11,7 +11,9 @@ ListsViewComponent {
         parent: parent.listView
         MenuItem {
             text: qsTr("Clear All")
-            onClicked: console.debug("Clear all entries")
+            onClicked: {
+                remorse.execute(qsTr("Clear Done entries"), function() { model.clear(); /*TODO: Add db stuff*/ /*mainWindow.db.clear("doneList")*/ } )
+            }
         }
     }
 

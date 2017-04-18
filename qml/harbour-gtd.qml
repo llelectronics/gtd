@@ -53,6 +53,9 @@ ApplicationWindow
     cover: undefined
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All
+
+    // Global remorse
+    RemorsePopup { id: remorse }
 }
 
 

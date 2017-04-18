@@ -32,6 +32,10 @@
         <source>Clear All</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Clear Done entries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TodoListView</name>
