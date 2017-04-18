@@ -5,6 +5,7 @@ import Sailfish.Silica 1.0
 ListsViewComponent {
     title: qsTr("Todo")
     model: todoListModel
+    modelId: "todoList"
 
     PullDownMenu {
         id: pulley

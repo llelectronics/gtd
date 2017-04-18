@@ -11,6 +11,7 @@ Item {
     property string ident
     signal moveRightButtonClicked
     signal itemClicked
+    signal itemPressAndHold
 
     Rectangle {
         id: todoItem
@@ -73,6 +74,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: itemClicked()
+            onPressAndHold: itemPressAndHold()
         }
 
         Rectangle {

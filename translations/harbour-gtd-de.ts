@@ -38,6 +38,17 @@
     </message>
 </context>
 <context>
+    <name>ListsViewComponent</name>
+    <message>
+        <source>Deleting </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TodoListView</name>
     <message>
         <source>Todo</source>

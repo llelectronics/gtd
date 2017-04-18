@@ -11,6 +11,7 @@ Item {
     property string filter
     property alias listView: listView
     property string type
+    property string modelId // Used for identifying the model for the DB
 
     height: mainPage.height; width: mainPage.width
 
@@ -31,41 +32,71 @@ Item {
             }
         }
         delegate:
-            // TODO Add proper list item
+            BackgroundItem {
+            id: bgdelegate
+            width: parent.width
+            height: menuOpen ? contextMenu.height + todoItem.height : todoItem.height
+            property Item contextMenu
+            property bool menuOpen: contextMenu != null && contextMenu.parent === bgdelegate
+
+            function remove() {
+                var removal = removalComponent.createObject(bgdelegate)
+                removal.execute(todoItem,qsTr("Deleting ") + ttitle, function() { listView.remove(index); /*TODO: DB stuff here using modelId*/ })
+            }
+
             TodoItem {
-            id: todoItem
-            title: ttitle
-            ident: tid
-            catColor1: tcatColor1
-            catColor2: tcatColor2
-            catColor3: tcatColor3
-            moveRightIcon: tmoveRightIcon
-            width: parent.width - Theme.paddingMedium * 2
-            anchors.horizontalCenter: parent.horizontalCenter
-            height: Theme.itemSizeLarge
+                id: todoItem
+                title: ttitle
+                ident: tid
+                catColor1: tcatColor1
+                catColor2: tcatColor2
+                catColor3: tcatColor3
+                moveRightIcon: tmoveRightIcon
+                width: parent.width - Theme.paddingMedium * 2
+                anchors.horizontalCenter: parent.horizontalCenter
+                height: Theme.itemSizeLarge
 
-            //            BackgroundItem {
-            //            id: delegate
-
-            //            Label {
-            //                x: Theme.paddingLarge
-            //                text: qsTr("Item") + " " + index
-            //                anchors.verticalCenter: parent.verticalCenter
-            //                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
-            //            }
-            onItemClicked: console.debug("Clicked " + ttitle)
-            onMoveRightButtonClicked: {
-                console.debug("Move todo with title:" + ttitle + " and tid " + tid + " to the right. Current: " + lsViewComponent.model)
-                if (lsViewComponent.model === todoListModel) {
-                    doingListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":tmoveRightIcon, "tid":ident});
-                    todoListModel.rm(tid);
+                function showContextMenu() {
+                    if (!contextMenu)
+                        contextMenu = myMenu.createObject(listView)
+                    contextMenu.show(bgdelegate)
                 }
-                else if (lsViewComponent.model === doingListModel) {
-                    doneListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":"image://theme/icon-m-acknowledge", "tid":ident});
-                    doingListModel.rm(tid);
+
+                onItemClicked: console.debug("Clicked " + ttitle)
+                onItemPressAndHold: showContextMenu()
+                onMoveRightButtonClicked: {
+                    console.debug("Move todo with title:" + ttitle + " and tid " + tid + " to the right. Current: " + lsViewComponent.model)
+                    if (lsViewComponent.model === todoListModel) {
+                        doingListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":tmoveRightIcon, "tid":ident});
+                        todoListModel.rm(tid);
+                    }
+                    else if (lsViewComponent.model === doingListModel) {
+                        doneListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":"image://theme/icon-m-acknowledge", "tid":ident});
+                        doingListModel.rm(tid);
+                    }
                 }
             }
-        }
+
+            Component {
+                id: removalComponent
+                RemorseItem {
+                    id: remorse
+                    onCanceled: destroy()
+                }
+            }
+
+            Component {
+                id: myMenu
+                ContextMenu {
+                    MenuItem {
+                        text: qsTr("Delete")
+                        onClicked: {
+                            bgdelegate.remove();
+                        }
+                    }
+                }
+            }
+        } // Background Item End
         VerticalScrollDecorator {}
     }
 }

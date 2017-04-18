@@ -5,5 +5,6 @@ import Sailfish.Silica 1.0
 ListsViewComponent {
     title: qsTr("Doing")
     model: doingListModel
+    modelId: "doingList"
 
 }
