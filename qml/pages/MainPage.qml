@@ -680,6 +680,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 import "MainPageCom"
+import SortFilterProxyModel 0.2
 
 
 Page {
@@ -711,20 +712,28 @@ Page {
         // Examples
         Component.onCompleted: {
             todoListModel.append({
-                        "ttitle": "This is a small test todo",
-                        "tcatColor1": "green",
-                        "tcatColor2": "orange",
-                        "tcatColor3": "",
-                        "tmoveRightIcon": "image://theme/icon-cover-next",
-                        "tid": "Elem1" //uniq
+                        ttitle: "#2 This is a small test todo",
+                        tcatColor1: "green",
+                        tcatColor2: "orange",
+                        tcatColor3: "",
+                        tmoveRightIcon: "image://theme/icon-cover-next",
+                        tid: "Elem1" //uniq
                         });
             todoListModel.append({
-                        ttitle: "Test Todo 2",
+                        ttitle: "#1 Test Todo 2",
                         tcatColor1: "red",
                         tcatColor2: "blue",
                         tcatColor3: "cyan",
                         tmoveRightIcon: "image://theme/icon-cover-next",
                         tid: "Elem2"
+                        });
+            todoListModel.append({
+                        ttitle: "#3 Test Todo 3",
+                        tcatColor1: "blue",
+                        tcatColor2: "yellow",
+                        tcatColor3: "",
+                        tmoveRightIcon: "image://theme/icon-cover-next",
+                        tid: "Elem3"
                         });
         }
         // End Example

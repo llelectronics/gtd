@@ -47,3 +47,4 @@ DISTFILES += \
     qml/pages/MainPageCom/TodoItem.qml \
     qml/pages/LListModel.qml
 
+include(src/sortFilterProxyModel/SortFilterProxyModel.pri)
