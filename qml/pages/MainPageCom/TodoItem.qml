@@ -33,8 +33,11 @@ Item {
                 width: parent.width
                 height: {
                     if (catColor2.visible && catColor3.visible) parent.height / 3
-                    else if (catColor2.visible) parent.height / 2
+                    else if (catColor2.visible || catColor3.visible) parent.height / 2
                     else parent.height
+                }
+                onColorChanged: {
+                    if (color == "#000000") visible = false
                 }
             }
             Rectangle {
@@ -42,7 +45,7 @@ Item {
                 width: parent.width
                 height: {
                     if (catColor1.visible && catColor3.visible) parent.height / 3
-                    else if (catColor1.visible) parent.height / 2
+                    else if (catColor1.visible || catColor3.visible) parent.height / 2
                     else parent.height
                 }
                 onColorChanged: {
@@ -52,7 +55,11 @@ Item {
             Rectangle {
                 id: catColor3
                 width: parent.width
-                height: parent.height / 3
+                height: {
+                    if (catColor1.visible && catColor2.visible) parent.height / 3
+                    else if (catColor1.visible || catColor2.visible) parent.height / 2
+                    else parent.height
+                }
                 onColorChanged: {
                     //console.debug("Color3 changed to: " + color)
                     if (color == "#000000") visible = false
