@@ -713,25 +713,25 @@ Page {
         Component.onCompleted: {
             todoListModel.append({
                         ttitle: "#2 This is a small test todo",
-                        tcatColor1: "green",
-                        tcatColor2: "orange",
-                        tcatColor3: "",
+                        tcatColor1: "",  // reserved for important
+                        tcatColor2: "orange", // due
+                        tcatColor3: "green", // personal or work related
                         tmoveRightIcon: "image://theme/icon-cover-next",
                         tid: "Elem1" //uniq
                         });
             todoListModel.append({
                         ttitle: "#1 Test Todo 2",
                         tcatColor1: "red",
-                        tcatColor2: "blue",
-                        tcatColor3: "cyan",
+                        tcatColor2: "cyan",
+                        tcatColor3: "blue",
                         tmoveRightIcon: "image://theme/icon-cover-next",
                         tid: "Elem2"
                         });
             todoListModel.append({
                         ttitle: "#3 Test Todo 3",
-                        tcatColor1: "blue",
+                        tcatColor1: "",
                         tcatColor2: "yellow",
-                        tcatColor3: "",
+                        tcatColor3: "blue",
                         tmoveRightIcon: "image://theme/icon-cover-next",
                         tid: "Elem3"
                         });
