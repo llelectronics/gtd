@@ -20,7 +20,7 @@ ListsViewComponent {
         }
         MenuItem {
             text: qsTr("Filter")
-            onClicked: pageStack.push(Qt.resolvedUrl("Filter.qml"));
+            onClicked: pageStack.push(Qt.resolvedUrl("Filter.qml"), {model: todoListModel} );
         }
     }
 

@@ -7,4 +7,13 @@ ListsViewComponent {
     model: doingListModel
     modelId: "doingList"
 
+    PullDownMenu {
+        id: pulley
+        parent: parent.listView
+        MenuItem {
+            text: qsTr("Filter")
+            onClicked: pageStack.push(Qt.resolvedUrl("Filter.qml"), {model: doingListModel} );
+        }
+    }
+
 }

@@ -16,6 +16,10 @@ ListsViewComponent {
                 remorse.execute(qsTr("Clear Done entries"), function() { model.clear(); /*TODO: Add db stuff*/ /*mainWindow.db.clear("doneList")*/ } )
             }
         }
+        MenuItem {
+            text: qsTr("Filter")
+            onClicked: pageStack.push(Qt.resolvedUrl("Filter.qml"), {model: doneListModel} );
+        }
     }
 
 }

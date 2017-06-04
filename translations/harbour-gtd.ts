@@ -21,6 +21,10 @@
         <source>Doing</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DoneListView</name>
@@ -34,6 +38,58 @@
     </message>
     <message>
         <source>Clear Done entries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Filter</name>
+    <message>
+        <source>Elements in the list are sorted by default based on the time they were added. You can give priority by adding #NUMBER.
+The lower the number the higher the priority</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Importance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>important</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Due</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this week</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>someday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>personal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>work</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
