@@ -712,29 +712,32 @@ Page {
         // Examples
         Component.onCompleted: {
             todoListModel.append({
-                        ttitle: "#2 This is a small test todo",
-                        tcatColor1: "",  // reserved for important
-                        tcatColor2: "orange", // due
-                        tcatColor3: "green", // personal or work related
-                        tmoveRightIcon: "image://theme/icon-cover-next",
-                        tid: "Elem1" //uniq
-                        });
+                                     ttitle: "#2 This is a small test todo",
+                                     tcatColor1: "",  // reserved for important
+                                     tcatColor2: "orange", // due
+                                     tcatColor3: "green", // personal or work related
+                                     tmoveRightIcon: "image://theme/icon-cover-next",
+                                     tid: "Elem1", //uniq
+                                     tnote: "**Test Note**\nThis is a little test\nwith multiple lines"
+                                 });
             todoListModel.append({
-                        ttitle: "#1 Test Todo 2",
-                        tcatColor1: "red",
-                        tcatColor2: "cyan",
-                        tcatColor3: "blue",
-                        tmoveRightIcon: "image://theme/icon-cover-next",
-                        tid: "Elem2"
-                        });
+                                     ttitle: "#1 Test Todo 2",
+                                     tcatColor1: "red",
+                                     tcatColor2: "cyan",
+                                     tcatColor3: "blue",
+                                     tmoveRightIcon: "image://theme/icon-cover-next",
+                                     tid: "Elem2",
+                                     tnote: "**Test Note #2**\nThis is a little test\nwith [https://neptuneos.com](an url))"
+                                 });
             todoListModel.append({
-                        ttitle: "#3 Test Todo 3",
-                        tcatColor1: "",
-                        tcatColor2: "yellow",
-                        tcatColor3: "blue",
-                        tmoveRightIcon: "image://theme/icon-cover-next",
-                        tid: "Elem3"
-                        });
+                                     ttitle: "#3 Test Todo 3",
+                                     tcatColor1: "",
+                                     tcatColor2: "yellow",
+                                     tcatColor3: "blue",
+                                     tmoveRightIcon: "image://theme/icon-cover-next",
+                                     tid: "Elem3",
+                                     tnote: "**Test Note #3**\nThis is a little test\n* with list"
+                                 });
         }
         // End Example
     }

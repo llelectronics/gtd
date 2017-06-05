@@ -12,7 +12,7 @@ ListsViewComponent {
         parent: parent.listView
         MenuItem {
             text: qsTr("Add Todo")
-            onClicked: pageStack.push(Qt.resolvedUrl("AddTodo.qml"));
+            onClicked: pageStack.push(Qt.resolvedUrl("CreateTodo.qml"));
         }
         MenuItem {
             text: qsTr("New List")

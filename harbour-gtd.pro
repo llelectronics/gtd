@@ -46,6 +46,7 @@ DISTFILES += \
     qml/pages/MainPageCom/TodoListView.qml \
     qml/pages/MainPageCom/TodoItem.qml \
     qml/pages/LListModel.qml \
-    qml/pages/MainPageCom/Filter.qml
+    qml/pages/MainPageCom/Filter.qml \
+    qml/pages/MainPageCom/CreateTodo.qml
 
 include(src/sortFilterProxyModel/SortFilterProxyModel.pri)
