@@ -47,6 +47,7 @@ DISTFILES += \
     qml/pages/MainPageCom/TodoItem.qml \
     qml/pages/LListModel.qml \
     qml/pages/MainPageCom/Filter.qml \
-    qml/pages/MainPageCom/CreateTodo.qml
+    qml/pages/MainPageCom/CreateTodo.qml \
+    qml/pages/helper/mmd.js
 
 include(src/sortFilterProxyModel/SortFilterProxyModel.pri)

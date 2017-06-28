@@ -54,15 +54,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Notes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show HTML</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Notes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../helper/mmd.js" as MMD
 
 
 Dialog {
@@ -21,6 +22,9 @@ Dialog {
     property bool filterIsDueSometimes: false
     property bool filterIsWork: false
     property bool filterIsPersonal: false
+
+    property bool _isHtml: false
+    property string _tnoteHtml: tnoteHtml.text;
 
     onFilterIsImportantChanged: {
         if (filterIsImportant) tcatColor1 = "red"
@@ -187,16 +191,37 @@ Dialog {
                 text: tnote
                 width: parent.width - (2* Theme.paddingMedium)
                 height: (createTodo.height / 2) - tnoteButtonSwitch.height
-                property bool isHtml: false
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 background: null
+                visible: !_isHtml
+            }
+            SilicaFlickable {
+                width: parent.width
+                height: (createTodo.height / 2) - tnoteButtonSwitch.height
+                contentHeight: tnoteHtml.height
+                visible: _isHtml
+                clip: true
+                Label {
+                    id: tnoteHtml
+                    text: MMD.mmd(tnoteText.text)
+                    width: parent.width - (2* Theme.paddingMedium)
+                    anchors.left: parent.left
+                    anchors.leftMargin: Theme.paddingMedium
+                    wrapMode: Text.WordWrap
+                    textFormat: Text.RichText
+                    onLinkActivated: {
+                        Qt.openUrlExternally(link)
+                    }
+                }
             }
             Button {
                 id: tnoteButtonSwitch
-                text: tnoteText.isHtml ? qsTr("Show Text") : qsTr("Show HTML")
+                text: _isHtml ? qsTr("Show Text") : qsTr("Show HTML")
                 width: parent.width - (2* Theme.paddingMedium)
                 anchors.horizontalCenter: parent.horizontalCenter
+                visible: tnoteText.text != ""
+                onClicked: _isHtml = !_isHtml
             }
 
         } // Column

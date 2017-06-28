@@ -33,7 +33,7 @@ Page {
 
             }
             Label {
-                text: "License: GPL (v3)"
+                text: "License: GPL (v3)\nmmd.js licensed under MIT"
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Rectangle{
