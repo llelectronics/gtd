@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../helper/db.js" as DB
 
 
 Item {
@@ -11,7 +12,8 @@ Item {
     property string filter
     property alias listView: listView
     property string type
-    property string modelId // Used for identifying the model for the DB
+    property string modelId // Used for identifying the model
+    property int lid // Used for the DB access
 
     height: mainPage.height; width: mainPage.width
 
@@ -41,7 +43,7 @@ Item {
 
             function remove() {
                 var removal = removalComponent.createObject(bgdelegate)
-                removal.execute(todoItem,qsTr("Deleting ") + ttitle, function() { listView.remove(index); /*TODO: DB stuff here using modelId*/ })
+                removal.execute(todoItem,qsTr("Deleting ") + ttitle, function() { listView.remove(index); DB.removeTodo(tid,lid) })
             }
 
             TodoItem {
@@ -62,7 +64,11 @@ Item {
                     contextMenu.show(bgdelegate)
                 }
 
-                onItemClicked: console.debug("Clicked " + ttitle)
+                onItemClicked: {
+                    console.debug("Clicked " + ttitle)
+                    pageStack.push(Qt.resolvedUrl("CreateTodo.qml"), {lid: lid, ttitle: ttitle, tcatColor1: tcatColor1, tcatColor2: tcatColor2, tcatColor3: tcatColor3,
+                                       tmoveRightIcon: tmoveRightIcon, tid: tid, tnote: tnote, taudio: taudio, timage: timage, edit: true, model: lsViewComponent.model} );
+                }
                 onItemPressAndHold: showContextMenu()
                 onMoveRightButtonClicked: {
                     console.debug("Move todo with title:" + ttitle + " and tid " + tid + " to the right. Current: " + lsViewComponent.model)

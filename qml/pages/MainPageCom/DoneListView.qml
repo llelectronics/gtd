@@ -6,6 +6,7 @@ ListsViewComponent {
     title: qsTr("Done")
     model: doneListModel
     modelId: "doneList"
+    lid: 2
 
     PullDownMenu {
         id: pulley

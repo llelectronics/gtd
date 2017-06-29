@@ -21,6 +21,42 @@ SortFilterProxyModel {
     function append(dictionary) { sModel.append(dictionary) }
     function remove(indexnumber) { sModel.remove(indexnumber) }
 
+    function isEmpty(str) {
+        return (!str || 0 === str.length);
+    }
+
+    function contains(ident) {
+        for (var i=0; i<count; i++) {
+            if (get(i).tid == ident)  { // type transformation is intended here
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function addTodo(tid,ttitle,tcatColor1,tcatColor2,tcatColor3,tmoveRightIcon,tnote,taudio,timage,lid) {
+        if (contains(tid)) rm(tid);
+        if (isEmpty(tcatColor1)) tcatColor1 = "";
+        if (isEmpty(tcatColor2)) tcatColor2 = "";
+        if (isEmpty(tcatColor3)) tcatColor3 = "";
+        if (isEmpty(taudio)) taudio = "";
+        if (isEmpty(timage)) timage = "";
+        if (isEmpty(tnote)) tnote = "";
+        if (isEmpty(tmoveRightIcon)) tmoveRightIcon = "";
+        append({
+                                 tid: tid, //uniq
+                                 ttitle: ttitle,
+                                 tcatColor1: tcatColor1,  // reserved for important
+                                 tcatColor2: tcatColor2, // due
+                                 tcatColor3: tcatColor3, // personal or work related
+                                 tmoveRightIcon: tmoveRightIcon,
+                                 tnote: tnote,
+                                 taudio: taudio,
+                                 timage: timage,
+                                 lid: lid
+                             });
+    }
+
     function rm(ident) {
         for (var i=0; i<count; i++) {
             if (sModel.get(i).tid == ident)  {

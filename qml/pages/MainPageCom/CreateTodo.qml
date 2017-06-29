@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../helper/mmd.js" as MMD
+import "../helper/db.js" as DB
 
 
 Dialog {
@@ -15,6 +16,9 @@ Dialog {
     property string tmoveRightIcon
     property string tid
     property string tnote
+    property string taudio
+    property string timage
+    property int lid
 
     property bool filterIsImportant: false
     property bool filterIsDueToday: false
@@ -23,8 +27,42 @@ Dialog {
     property bool filterIsWork: false
     property bool filterIsPersonal: false
 
+    property bool edit: false
+    property var model
+
     property bool _isHtml: false
     property string _tnoteHtml: tnoteHtml.text;
+
+    onAccepted: {
+        var date = new Date().getTime();
+        if (!edit) {
+        model.addTodo(
+                    todoTitle.text,
+                    tcatColor1,  // reserved for important
+                    tcatColor2, // due
+                    tcatColor3, // personal or work related
+                    "image://theme/icon-cover-next",
+                    date, //uniq
+                    tnoteText.text,
+                    taudio,   // Not used for now
+                    timage
+                    );
+            DB.addTodo(date,todoTitle.text,tcatColor1,tcatColor2,tcatColor3,"image://theme/icon-cover-next",tnoteText.text,taudio,timage,lid)
+        } else {
+            model.addTodo(
+                        todoTitle.text,
+                        tcatColor1,  // reserved for important
+                        tcatColor2, // due
+                        tcatColor3, // personal or work related
+                        tmoveRightIcon,
+                        tid, //uniq
+                        tnoteText.text,
+                        taudio,   // Not used for now
+                        timage
+                        );
+            DB.addTodo(tid,todoTitle.text,tcatColor1,tcatColor2,tcatColor3,tmoveRightIcon,tnoteText.text,taudio,timage,lid)
+        }
+    }
 
     onFilterIsImportantChanged: {
         if (filterIsImportant) tcatColor1 = "red"
