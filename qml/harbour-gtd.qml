@@ -42,6 +42,10 @@ ApplicationWindow
 
     property Item mainPage
 
+    function isEmpty(str) {
+        return (!str || 0 === str.length);
+    }
+
 
     initialPage: Component {
         MainPage {

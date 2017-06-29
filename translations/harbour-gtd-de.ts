@@ -99,12 +99,12 @@
 <context>
     <name>Filter</name>
     <message>
-        <source>Elements in the list are sorted by default based on the time they were added. You can give priority by adding #NUMBER.
-The lower the number the higher the priority</source>
+        <source>Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filter</source>
+        <source>Elements in the list are sorted by default based on the time they were added. You can give priority by adding #NUMBER.
+The lower the number the higher the priority</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -37,28 +37,30 @@ Dialog {
         var date = new Date().getTime();
         if (!edit) {
         model.addTodo(
+                    date, //uniq
                     todoTitle.text,
                     tcatColor1,  // reserved for important
                     tcatColor2, // due
                     tcatColor3, // personal or work related
                     "image://theme/icon-cover-next",
-                    date, //uniq
                     tnoteText.text,
                     taudio,   // Not used for now
-                    timage
+                    timage,
+                    lid
                     );
             DB.addTodo(date,todoTitle.text,tcatColor1,tcatColor2,tcatColor3,"image://theme/icon-cover-next",tnoteText.text,taudio,timage,lid)
         } else {
             model.addTodo(
+                        tid, //uniq
                         todoTitle.text,
                         tcatColor1,  // reserved for important
                         tcatColor2, // due
                         tcatColor3, // personal or work related
                         tmoveRightIcon,
-                        tid, //uniq
                         tnoteText.text,
                         taudio,   // Not used for now
-                        timage
+                        timage,
+                        lid
                         );
             DB.addTodo(tid,todoTitle.text,tcatColor1,tcatColor2,tcatColor3,tmoveRightIcon,tnoteText.text,taudio,timage,lid)
         }

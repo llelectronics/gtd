@@ -21,10 +21,6 @@ SortFilterProxyModel {
     function append(dictionary) { sModel.append(dictionary) }
     function remove(indexnumber) { sModel.remove(indexnumber) }
 
-    function isEmpty(str) {
-        return (!str || 0 === str.length);
-    }
-
     function contains(ident) {
         for (var i=0; i<count; i++) {
             if (get(i).tid == ident)  { // type transformation is intended here
@@ -36,13 +32,13 @@ SortFilterProxyModel {
 
     function addTodo(tid,ttitle,tcatColor1,tcatColor2,tcatColor3,tmoveRightIcon,tnote,taudio,timage,lid) {
         if (contains(tid)) rm(tid);
-        if (isEmpty(tcatColor1)) tcatColor1 = "";
-        if (isEmpty(tcatColor2)) tcatColor2 = "";
-        if (isEmpty(tcatColor3)) tcatColor3 = "";
-        if (isEmpty(taudio)) taudio = "";
-        if (isEmpty(timage)) timage = "";
-        if (isEmpty(tnote)) tnote = "";
-        if (isEmpty(tmoveRightIcon)) tmoveRightIcon = "";
+        if (mainWindow.isEmpty(tcatColor1)) tcatColor1 = "";
+        if (mainWindow.isEmpty(tcatColor2)) tcatColor2 = "";
+        if (mainWindow.isEmpty(tcatColor3)) tcatColor3 = "";
+        if (mainWindow.isEmpty(taudio)) taudio = "";
+        if (mainWindow.isEmpty(timage)) timage = "";
+        if (mainWindow.isEmpty(tnote)) tnote = "";
+        if (mainWindow.isEmpty(tmoveRightIcon)) tmoveRightIcon = "";
         append({
                                  tid: tid, //uniq
                                  ttitle: ttitle,

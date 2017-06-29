@@ -53,7 +53,7 @@ The lower the number the higher the priority")
                     text: qsTr("important")
                     anchors.left: impRect.right
                     anchors.leftMargin: Theme.paddingMedium
-                    checked: model.filterIsImportant
+                    checked: model.filterIsImportant || model.tcatColor1 == "red"
                     onCheckedChanged: {
                         if (checked) model.filterIsImportant = true
                         else model.filterIsImportant = false
@@ -78,7 +78,7 @@ The lower the number the higher the priority")
                 TextSwitch {
                     id: todSwitch
                     text: qsTr("today")
-                    checked: model.filterIsDueToday
+                    checked: model.filterIsDueToday || model.tcatColor2 == "orange"
                     anchors.left: todRect.right
                     anchors.leftMargin: Theme.paddingMedium
                     onCheckedChanged: {
@@ -105,7 +105,7 @@ The lower the number the higher the priority")
                 TextSwitch {
                     id: thiswSwitch
                     text: qsTr("this week")
-                    checked: model.filterIsDueThisWeek
+                    checked: model.filterIsDueThisWeek || model.tcatColor2 == "cyan"
                     anchors.left: thiswRect.right
                     anchors.leftMargin: Theme.paddingMedium
                     onCheckedChanged: {
@@ -132,7 +132,7 @@ The lower the number the higher the priority")
                 TextSwitch {
                     id: somSwitch
                     text: qsTr("someday")
-                    checked: model.filterIsDueSometimes
+                    checked: model.filterIsDueSometimes || model.tcatColor2 == "yellow"
                     anchors.left: somRect.right
                     anchors.leftMargin: Theme.paddingMedium
                     onCheckedChanged: {
@@ -163,7 +163,7 @@ The lower the number the higher the priority")
                 TextSwitch {
                     id: perSwitch
                     text: qsTr("personal")
-                    checked: model.filterIsPersonal
+                    checked: model.filterIsPersonal || model.tcatColor3 == "green"
                     anchors.left: perRect.right
                     anchors.leftMargin: Theme.paddingMedium
                     onCheckedChanged: {
@@ -189,7 +189,7 @@ The lower the number the higher the priority")
                 TextSwitch {
                     id: worSwitch
                     text: qsTr("work")
-                    checked: model.filterIsWork
+                    checked: model.filterIsWork || model.tcatColor2 == "blue"
                     anchors.left: worRect.right
                     anchors.leftMargin: Theme.paddingMedium
                     onCheckedChanged: {
