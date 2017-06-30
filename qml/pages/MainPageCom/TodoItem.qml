@@ -9,6 +9,7 @@ Item {
     property alias title: todoTitle.text
     property alias moveRightIcon: moveRightIcon.source
     property string ident
+    property string lident
     signal moveRightButtonClicked
     signal itemClicked
     signal itemPressAndHold

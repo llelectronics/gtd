@@ -85,6 +85,25 @@ function getTodos(lid,tlist) {
 }
 
 
+function moveTodo(tid,oldlid,newlid) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+        //console.log("tid is : " + tid + " oldlid is : " + oldlid + " newlid is : " + newlid)
+        var rs = tx.executeSql('UPDATE todos SET lid=(?) WHERE tid=(?) AND lid=(?);', [newlid,tid,oldlid]);
+        if (rs.rowsAffected > 0) {
+            res = "OK";
+            console.log ("Saved to database");
+        } else {
+            res = "Error";
+            console.log ("Error saving to database");
+        }
+    }
+    );
+    // The function returns “OK” if it was successful, or “Error” if it wasn't
+    return res;
+}
+
 // TODO: BELOW //
 
 function showHistoryLast() {

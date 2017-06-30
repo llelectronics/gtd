@@ -693,6 +693,9 @@ Page {
     property alias doingListModel: doingListModel
     property alias doneListModel: doneListModel
 
+    property alias todoListView: todoListView
+    property alias doingListView: doingListView
+    property alias doneListView: doneListView
 
     SlideshowView {
         id: mainView

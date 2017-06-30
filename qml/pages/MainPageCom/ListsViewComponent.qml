@@ -57,6 +57,7 @@ Item {
                 width: parent.width - Theme.paddingMedium * 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: Theme.itemSizeLarge
+                lident: lid
 
                 function showContextMenu() {
                     if (!contextMenu)
@@ -73,12 +74,14 @@ Item {
                 onMoveRightButtonClicked: {
                     console.debug("Move todo with title:" + ttitle + " and tid " + tid + " to the right. Current: " + lsViewComponent.model)
                     if (lsViewComponent.model === todoListModel) {
-                        doingListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":tmoveRightIcon, "tid":ident});
+                        doingListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":tmoveRightIcon, "tid":ident, "lid" : lident});
                         todoListModel.rm(tid);
+                        DB.moveTodo(ident,lident,mainPage.doingListView.lid);
                     }
                     else if (lsViewComponent.model === doingListModel) {
-                        doneListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":"image://theme/icon-m-acknowledge", "tid":ident});
+                        doneListModel.append({"ttitle": title, "tcatColor1":tcatColor1, "tcatColor2":tcatColor2, "tcatColor3":tcatColor3,"tmoveRightIcon":"image://theme/icon-m-acknowledge", "tid":ident, "lid" : lident});
                         doingListModel.rm(tid);
+                        DB.moveTodo(ident,lident,mainPage.doneListView.lid)
                     }
                 }
             }
